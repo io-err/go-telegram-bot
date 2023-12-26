@@ -1,5 +1,5 @@
 /*
-Copyright © 2023 NAME HERE <EMAIL ADDRESS>
+Copyright © 2023 IO-Err
 */
 package cmd
 
@@ -20,9 +20,9 @@ var (
 
 // kbotCmd represents the kbot command
 var kbotCmd = &cobra.Command{
-	Use:   "kbot",
+	Use:     "kbot",
 	Aliases: []string{"start"},
-	Short: "A brief description of your command",
+	Short:   "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
@@ -51,7 +51,6 @@ to quickly create a Cobra application.`,
 			case "version":
 				err = m.Send(fmt.Sprintf("My version is %s", appVersion))
 			}
-
 
 			return err
 
