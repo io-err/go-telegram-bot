@@ -28,7 +28,7 @@ jobs:
       - name: Build and Push
         run: make image push TARGETARCH=$TARGETARCH REGISTRY=$REGISTRY
       - name: Clean
-        run: make clean TARGETARCH=$TARGETARCH
+        run: make clean TARGETARCH=$TARGETARCH REGISTRY=$REGISTRY
         
   cd:
     name: CD
