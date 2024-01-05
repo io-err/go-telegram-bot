@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Run test
         run: make test
@@ -37,7 +39,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - run: echo "VERSION=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+        with:
+          fetch-depth: 0
+    - run: echo "VERSION=$(git describe --tags --abbrev=0)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     # update version in helm values
     - uses: mikefarah/yq@master
       with:
