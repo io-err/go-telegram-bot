@@ -3,10 +3,9 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-
 image:
   repository: "ioerr/go-telegram-bot"
-  tag: "v1.1.0"
+  tag: "45d46dd"
   os: "linux"
   arch: amd64
 secret:
