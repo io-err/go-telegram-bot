@@ -29,3 +29,21 @@ jobs:
         run: make image push TARGETARCH=$TARGETARCH
       - name: Clean
         run: make clean TARGETARCH=$TARGETARCH
+        
+  cd:
+    name: CD
+    needs: ci
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - run: echo "VERSION=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    # update version in helm values
+    - uses: mikefarah/yq@master
+      with:
+        cmd: yq -i '.image.tag=strenv(VERSION) | .image.arch=strenv(TARGETARCH)' helm/values.yaml
+    - run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git commit -am "update version $VERSION"
+        git push
