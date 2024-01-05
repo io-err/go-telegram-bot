@@ -5,10 +5,11 @@
 replicaCount: 1
 image:
   registry: "ghcr.io"
-  repository: "io-err/go-telegram-bot"
+  repository: "io-err/kbot"
   tag: "b2f4a6d"
   os: linux
   arch: amd64
+  
 secret:
   name: "telegram-bot"
   env: "TELE_TOKEN"

@@ -1,4 +1,4 @@
-APP := $(shell basename $(shell git remote get-url origin))
+APP := kbot
 REGISTRY := ioerr
 VERSION=$(shell git rev-parse --short HEAD)
 TARGETOS=linux
