@@ -27,7 +27,7 @@ jobs:
       - name: Build and Push
         env:
           REGISTRY: ghcr.io/${{ secrets.DOCKERHUB_USERNAME }}
-        run: make image push TARGETARCH=$TARGETARCH
+        run: make image push TARGETARCH=$TARGETARCH REGISTRY=$REGISTRY
       - name: Clean
         run: make clean TARGETARCH=$TARGETARCH
         
