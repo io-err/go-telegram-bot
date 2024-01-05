@@ -1,7 +1,7 @@
 APP := $(shell basename $(shell git remote get-url origin))
 REGISTRY := ioerr
 VERSION=$(shell git rev-parse --short HEAD)
-TARGETOS=linux 
+TARGETOS=linux
 TARGETARCH=amd64
 
 format:
@@ -24,15 +24,6 @@ image:
 
 push:
 	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
-
-linux: build image 
-  TARGETOS=linux
-  
-arm: build image
-  TARGETARCH=arm64
-
-windows: build image
-  TARGETOS=windows
 
 clean:
 	rm go-telegram-bot
