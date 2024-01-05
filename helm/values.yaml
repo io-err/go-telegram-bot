@@ -4,7 +4,8 @@
 
 replicaCount: 1
 image:
-  repository: "ghcr.io/io-err/go-telegram-bot"
+  registry: "ghcr.io"
+  repository: "io-err/go-telegram-bot"
   tag: "823212f"
   os: "linux"
   arch: amd64
