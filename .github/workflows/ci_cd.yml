@@ -5,7 +5,7 @@ on: push
 env:
   TARGETARCH: amd64
   REGISTRY: ghcr.io/${{ secrets.DOCKERHUB_USERNAME }}
-  
+
 jobs:
   ci:
     name: CI
@@ -26,7 +26,6 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Push
-        env:
         run: make image push TARGETARCH=$TARGETARCH REGISTRY=$REGISTRY
       - name: Clean
         run: make clean TARGETARCH=$TARGETARCH
