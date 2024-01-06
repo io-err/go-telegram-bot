@@ -1,11 +1,11 @@
 pipeline {
-agent any
+    agent any
 
-stages {
-    stage("ls"){
-        sh "ls"
+    stages {
+        stage('ls') {
+            steps {
+                echo 'ls'
+            }
+        }
     }
 }
-
-}
-
