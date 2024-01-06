@@ -1,10 +1,21 @@
 pipeline {
     agent any
 
+   parameters {
+       choice(name: 'TARGETOS', choices: ['linux', 'windows'], description: 'Select the target OS')
+   }
+
     stages {
-        stage('ls') {
+        stage('test') {
             steps {
-                sh 'ls'
+                echo 'EXECUTING TESTS'
+                sh 'make test'
+            }
+        }
+        stage('image') {
+            steps {
+                echo 'PREPARING IMAGE'
+                sh 'make image TARGETARCH=$TARGETARCH TARGETOS=$TARGETOS'
             }
         }
     }
