@@ -6,7 +6,7 @@ replicaCount: 1
 image:
   registry: "ghcr.io"
   repository: "io-err/go-telegram-bot"
-  tag: "v1.1.1-65200a5"
+  tag: "v1.1.1-6cf39d2"
   os: linux
   arch: amd64
 secret:
