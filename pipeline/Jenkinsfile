@@ -20,5 +20,12 @@ pipeline {
                 sh 'make image TARGETARCH=$TARGETARCH TARGETOS=$TARGETOS'
             }
         }
+        stage('push') {
+            steps {
+                echo 'PUSHING IMAGE'
+                docker.withRegistry ('', 'dockerhub')
+                sh 'make image TARGETARCH=$TARGETARCH TARGETOS=$TARGETOS'
+            }
+        }
     }
 }
