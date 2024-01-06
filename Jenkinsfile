@@ -3,6 +3,8 @@ pipeline {
 
    parameters {
        choice(name: 'TARGETOS', choices: ['linux', 'windows'], description: 'Select the target OS')
+       choice(name: 'TARGETARCH', choices: ['amd64', 'arm64'], description: 'Select the target arch')
+
    }
 
     stages {
