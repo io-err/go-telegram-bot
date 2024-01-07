@@ -22,9 +22,11 @@ pipeline {
         }
         stage('push') {
             steps {
+                script{
                 echo 'PUSHING IMAGE'
                 docker.withRegistry ('', 'dockerhub')
                 sh 'make image TARGETARCH=$TARGETARCH TARGETOS=$TARGETOS'
+                }
             }
         }
     }
