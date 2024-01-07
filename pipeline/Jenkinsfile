@@ -24,8 +24,9 @@ pipeline {
             steps {
                 script{
                 echo 'PUSHING IMAGE'
-                docker.withRegistry ('', 'dockerhub')
-                sh 'make image TARGETARCH=$TARGETARCH TARGETOS=$TARGETOS'
+                docker.withRegistry ('', 'dockerhub'){
+                sh 'make push'
+                    }
                 }
             }
         }
